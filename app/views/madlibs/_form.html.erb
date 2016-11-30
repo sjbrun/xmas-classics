@@ -1,0 +1,12 @@
+<%= form_for @madlib do |f| %>
+  Lyrics:
+  <ul>
+    <%= f.fields_for :lyrics do |lyrics_form| %>
+      <li>
+        <%= lyrics_form.label :part_of_speech %>
+        <%= lyrics_form.text_field :word %>
+
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,35 @@
+<%#= render "shared/errors", obj: @song %>
+
+<div class="panel-body">
+  <%= form_for @song do |f| %>
+    <div class="form-group required">
+      <%= f.label "Song Title", class: "control-label" %><br>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="form-group required">
+      <%= f.label "Lyrics", class: "control-label" %><br>
+      <%= f.text_area :lines, size: "150x50", autofocus: true, class: "form-control" %>
+    </div>
+    <div>
+    Words or Phrases to be madlibbed:
+    <ul>
+      <%= f.fields_for :lyrics do |lyrics_form| %>
+        <li>
+          <%= lyrics_form.label "Word or Phrase" %>
+          <%= lyrics_form.text_field :word %>
+          
+          <%= lyrics_form.label :part_of_speech %>
+          <%= lyrics_form.text_field :part_of_speech %>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+    <div class="form-group">
+        <%= f.submit %>
+    </div>
+    <div class="form-group">
+      [ <%= link_to "Cancel request and return to tunes listing", root_path %> ]
+    </div>
+    
+  <% end %>
+</div> <!-- end panel-body -->

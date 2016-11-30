@@ -1,0 +1,16 @@
+<!-- SONG SHOW PAGE -->
+<h2 align="center" class="jumbotron">
+  <%= @song.name %>
+</h2>
+
+<div align="center" class="well">
+  <%= simple_format(@original_lines) %>
+</div>
+
+<div>
+    <% if @song.lyrics.any? %>
+      <% @song.lyrics.each do |lyric| %>
+      <%= "#{lyric.word} | " %>
+    <% end %>
+  <% end %>
+</div>
