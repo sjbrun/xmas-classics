@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130233606) do
+ActiveRecord::Schema.define(version: 20161201175229) do
 
   create_table "lyrics", force: :cascade do |t|
     t.string   "word"
@@ -19,14 +19,19 @@ ActiveRecord::Schema.define(version: 20161130233606) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "song_id"
+    t.integer  "madlib_id"
   end
 
+  add_index "lyrics", ["madlib_id"], name: "index_lyrics_on_madlib_id"
   add_index "lyrics", ["song_id"], name: "index_lyrics_on_song_id"
 
   create_table "madlibs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "song_id"
   end
+
+  add_index "madlibs", ["song_id"], name: "index_madlibs_on_song_id"
 
   create_table "songs", force: :cascade do |t|
     t.string   "name"

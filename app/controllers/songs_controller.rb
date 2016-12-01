@@ -22,7 +22,6 @@ class SongsController < ApplicationController
   
   def show
     @original_lines = @song.lines
-    
   end
   
   def edit

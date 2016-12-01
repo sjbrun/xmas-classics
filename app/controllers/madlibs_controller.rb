@@ -3,8 +3,9 @@ class MadlibsController < ApplicationController
   
   def new
     @madlib = Madlib.new
-    len = @madlib.song.lyrics.length
-    len.times { @madlib.lyrics.build }
+    #len = @madlib.song.lyrics.length
+    #len.times { @madlib.lyrics.build }
+    12.times { @madlib.lyrics.build }
   end
   
   def edit
@@ -14,7 +15,7 @@ class MadlibsController < ApplicationController
     @madlib = Madlib.new(madlib_params)
     if @madlib.save
       flash[:success] = "Madlib created successfully"
-      redirect_to song_madlib_path(@madlib)
+      redirect_to madlib_path(@madlib)
     else
       render 'new'
     end
@@ -24,10 +25,10 @@ class MadlibsController < ApplicationController
   end
   
   def show
-    @lyrics = @song.lines.downcase
-    len = @madlib.lyrics.length
+    @new_lyrics = @song.lines.downcase
+    len = @madlib.lyrics.length - 1
     (0..len).each do |n|
-       @lyrics.gsub! @song.lyrics.words[n], @madlib.lyrics.words[n]
+      @new_lyrics.gsub!(@song.lyrics[n].word, @madlib.lyrics[n].word)
     end
   end
   
@@ -46,8 +47,8 @@ class MadlibsController < ApplicationController
   end
 
   def madlib_params
-    params.require(:madlib).permit(:one, :two, :three, :four, :five, :six,
-                            :seven, :eight, :nine, :ten, :eleven, :twelve)
+    params.require(:madlib).permit(:song_id, 
+                  lyrics_attributes: [:id, :word, :part_of_speech])
   end
 
 end

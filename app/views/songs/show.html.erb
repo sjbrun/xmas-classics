@@ -4,13 +4,15 @@
 </h2>
 
 <div align="center" class="well">
+  <h3>Original Lyrics</h3>
   <%= simple_format(@original_lines) %>
 </div>
 
 <div>
-    <% if @song.lyrics.any? %>
-      <% @song.lyrics.each do |lyric| %>
-      <%= "#{lyric.word} | " %>
+  <h3>Madlib Words</h3>  
+  <% if @song.lyrics.any? %>
+    <% @song.lyrics.each do |lyric| %>
+    <%= "#{lyric.word} | " %>
     <% end %>
   <% end %>
 </div>

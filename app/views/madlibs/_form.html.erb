@@ -1,12 +1,27 @@
-<%= form_for @madlib do |f| %>
-  Lyrics:
-  <ul>
-    <%= f.fields_for :lyrics do |lyrics_form| %>
-      <li>
-        <%= lyrics_form.label :part_of_speech %>
-        <%= lyrics_form.text_field :word %>
-
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<!--MADLIB FORM-->
+<div class="panel-body">
+  <div class="form-group">
+  <%= form_for @madlib do |f| %>
+    <%= f.label "Select Song to Madlib" %><br>
+    <%= f.collection_select(:song_id, Song.all, :id, :name) %>
+  <br>
+  </div>
+  <div class="form-group">
+    Madlibs:
+    <ul>
+      <%= f.fields_for :lyrics do |lyrics_form| %>
+        <li>
+          <%= lyrics_form.label :word %>
+          <%= lyrics_form.text_field :word %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="form-group">
+      <%= f.submit %>
+  </div>
+  <div class="form-group">
+    [ <%= link_to "Cancel request and return to tunes listing", root_path %> ]
+  </div>
+  <% end %>
+</div><!-- end panel-body -->

@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   
   root 'songs#index'
   
-  resources :songs do
-    resources :madlibs
-  end
+  resources :songs, :madlibs
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

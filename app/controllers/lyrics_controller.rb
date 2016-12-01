@@ -24,12 +24,13 @@ class LyricsController < ApplicationController
   
   private
   
-  def set_song
+  def set_lyric
     @lyric = Lyric.find(params[:id])
   end
 
   def lyric_params
-    params.require(:lyric).permit(:word, :part_of_speech, :song_id)
+    params.require(:lyric).permit(:word, :part_of_speech, :song_id,
+                                  :madlib_id)
   end
   
 end
