@@ -28,6 +28,12 @@ class SongsController < ApplicationController
   end
   
   def update
+    if @song.update(song_params)
+      flash[:success] = "Song was successfully updated."
+      redirect_to song_path(@song)
+    else
+      render 'edit' # render edit tune article page for another try
+    end
   end
   
   def delete

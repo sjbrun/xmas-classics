@@ -1,11 +1,13 @@
 class MadlibsController < ApplicationController
   before_action :set_madlib, only: [:show, :edit, :update, :destroy]
+  before_action :set_song, only: [:new, :create]
   
   def new
     @madlib = Madlib.new
-    #len = @madlib.song.lyrics.length
-    #len.times { @madlib.lyrics.build }
-    12.times { @madlib.lyrics.build }
+    len = @song.lyrics.length
+    (0..len-1).each do |n|
+      @madlib.lyrics.build(:part_of_speech => @song.lyrics[n].part_of_speech)
+    end
   end
   
   def edit
@@ -13,15 +15,26 @@ class MadlibsController < ApplicationController
   
   def create
     @madlib = Madlib.new(madlib_params)
+    @madlib.song = @song
+    len = @song.lyrics.length
+    (0..len-1).each do |n|
+      @madlib.lyrics[n].part_of_speech = @song.lyrics[n].part_of_speech
+    end
     if @madlib.save
       flash[:success] = "Madlib created successfully"
-      redirect_to madlib_path(@madlib)
+      redirect_to song_madlib_path(@song, @madlib)
     else
       render 'new'
     end
   end
   
   def update
+    if @madlib.update(madlib_params)
+      flash[:success] = "Madlib was successfully updated."
+      redirect_to song_madlib_path(@song, @madlib)
+    else
+      render 'edit' # render edit tune article page for another try
+    end
   end
   
   def show
@@ -38,12 +51,15 @@ class MadlibsController < ApplicationController
   def delete
   end
   
-  
   private
 
   def set_madlib
     @madlib = Madlib.find(params[:id])
-    @song = @madlib.song
+    @song = Song.find(params[:song_id])
+  end
+
+  def set_song
+    @song = Song.find(params[:song_id])
   end
 
   def madlib_params

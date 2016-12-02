@@ -1,14 +1,22 @@
 <!-- SONG SHOW PAGE -->
-<h2 align="center" class="jumbotron">
+<h1 align="center" class="jumbotron">
   <%= @song.name %>
-</h2>
+</h1>
 
-<div align="center" class="well">
-  <h3>Original Lyrics</h3>
-  <%= simple_format(@original_lines) %>
+<div align="center">
+  <h2>
+    <%= link_to("New Madlib", new_song_madlib_path(@song)) %>
+  </h2>
 </div>
 
-<div>
+<div align="center">
+  <%= @song.madlibs.each do |madlib| %>
+    <%= link_to(madlib.id, song_madlib_path(@song, madlib)) %>
+  <% end %>
+</div>
+
+
+<div align="center">
   <h3>Madlib Words</h3>  
   <% if @song.lyrics.any? %>
     <% @song.lyrics.each do |lyric| %>
@@ -16,3 +24,9 @@
     <% end %>
   <% end %>
 </div>
+
+<div align="center" class="well">
+  <h3>Original Lyrics</h3>
+  <%= simple_format(@original_lines) %>
+</div>
+
