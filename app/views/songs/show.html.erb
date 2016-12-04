@@ -1,31 +1,27 @@
 <!-- SONG SHOW PAGE -->
-<h1 align="center" class="jumbotron">
-  <%= @song.name %>
-</h1>
-
-<div align="center">
-  <h2>
-    <%= link_to("New Madlib", new_song_madlib_path(@song)) %>
-  </h2>
-</div>
-
-<div align="center">
-  <%= @song.madlibs.each do |madlib| %>
-    <%= link_to(madlib.id, song_madlib_path(@song, madlib)) %>
-  <% end %>
-</div>
-
-
-<div align="center">
-  <h3>Madlib Words</h3>  
-  <% if @song.lyrics.any? %>
-    <% @song.lyrics.each do |lyric| %>
-    <%= "#{lyric.word} | " %>
-    <% end %>
-  <% end %>
+<div align="center" class="jumbotron">
+  <h1>
+    <%= @song.name %>
+  </h1>
 </div>
 
 <div align="center" class="well">
+  <h2>
+    <%= link_to("Create New Madlib", new_song_madlib_path(@song)) %>
+  </h2>
+  <h3>
+    <% if @song.madlibs.empty? %>
+      (No madlibs created yet)
+    <% else %>
+      Madlibs already created: 
+      <% @song.madlibs.each do |madlib| %>
+        <%= link_to(madlib.id, song_madlib_path(@song, madlib)) %>
+      <% end %>
+    <% end %>
+  </h3>
+</div>
+
+<div align="center" class="original-lyrics">
   <h3>Original Lyrics</h3>
   <%= simple_format(@original_lines) %>
 </div>

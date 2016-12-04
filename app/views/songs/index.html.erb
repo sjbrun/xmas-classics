@@ -1,11 +1,17 @@
-<h2>Songs Index</h2>
-
-<h3><%#= link_to('New Madlib', new_madlib_path) %></h3>
-
-<ul>
-  <%= @songs.each do |song| %>
-    <li>
-      <%= link_to(song.name, song_path(song)) %>
-    </li>
-  <% end %>
-</ul>
+<div align="center" class="jumbotron">
+  <h1 align="center">Christmas Classics - Madlibbed!</h1>
+</div>
+<br>
+  
+<table align="center" class="table table-hover">
+  <thead></thead>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td align="center" class="song-table">
+          <%= link_to(song.name, song_path(song)) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

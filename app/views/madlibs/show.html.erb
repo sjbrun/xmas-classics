@@ -1,9 +1,14 @@
-<div align="center" class="well">
-  <h3>
+<!-- MADLIB SHOW PAGE -->
+<div align="center" class="page-header">
+  <h1 class="title">
     <%= @madlib.song.name %> - Madlibbed 
-  </h3>
-  <h4>
+  </h1>
+  <h2>
     <%= link_to('Edit', edit_song_madlib_path(@song, @madlib)) %>
-  </h4>
+  </h2>
+</div>
+<div align="center" class="container-fluid">
+  <div class="well lyrics">
   <%= simple_format(@new_lyrics) %>
+  </div>
 </div>

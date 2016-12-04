@@ -10,7 +10,9 @@
       <%= f.fields_for :lyrics do |lyrics_form| %>
         <li>
           <%= lyrics_form.text_field :word %>
-          <%= lyrics_form.label lyrics_form.object.part_of_speech %>
+          <% if !lyrics_form.object.part_of_speech.nil? %>
+            <%= lyrics_form.label lyrics_form.object.part_of_speech %>
+          <% end %>
         </li>
       <% end %>
     </ul>
