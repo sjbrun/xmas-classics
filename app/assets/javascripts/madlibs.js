@@ -1,4 +1,4 @@
-let template = function(i) {
+var template = function(i) {
   return `<li>
   <label for="song_lyrics_attributes_${i}_Word or Phrase">Word or phrase</label>
   <input type="text" name="song[lyrics_attributes][${i}][word]" id="song_lyrics_attributes_${i}_word">
@@ -10,7 +10,7 @@ let template = function(i) {
 };
 
 $(document).ready(function() {
-  let count = parseInt($('#words-phrases li').last().data('number'), 10) + 1;
+  var count = parseInt($('#words-phrases li').last().data('number'), 10) + 1;
   $('.panel-body').on('click', '#add-another', function() {
     $('#words-phrases').append(template(count));
     count++;
