@@ -22,4 +22,5 @@ test:
 
 production:
   <<: *default
-  database: db/production.postresql
+  adapter: postresql
+  database: <%= ENV["DATABASE"] %>
