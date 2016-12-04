@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   
   def new
     @song = Song.new
-    2.times { @song.lyrics.build }
+    4.times { @song.lyrics.build }
   end
 
   def create
