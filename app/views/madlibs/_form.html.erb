@@ -11,7 +11,7 @@
         <li>
           <%= lyrics_form.text_field :word %>
           <% if !lyrics_form.object.part_of_speech.nil? %>
-            <%= lyrics_form.label lyrics_form.object.part_of_speech %>
+            <label><%= lyrics_form.object.part_of_speech %></label>
           <% end %>
         </li>
       <% end %>
