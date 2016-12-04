@@ -41,7 +41,16 @@ class MadlibsController < ApplicationController
     @new_lyrics = @song.lines.downcase
     len = @madlib.lyrics.length - 1
     (0..len).each do |n|
-      @new_lyrics.gsub!(@song.lyrics[n].word, @madlib.lyrics[n].word)
+      @new_lyrics.gsub!(
+        @song.lyrics[n].word,
+        @madlib.lyrics[n].word
+      )
+    end
+    (0..len).each do |n|
+      @new_lyrics.gsub!(
+        @madlib.lyrics[n].word,
+        "<span class='highlighted'>#{@madlib.lyrics[n].word}</span>"
+      )
     end
   end
   
