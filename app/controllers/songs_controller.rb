@@ -2,11 +2,15 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   
   def new
+    @available_audio = Dir.glob("app/assets/audio/*.mp3").map do |path|
+      path.split('/').last
+    end
     @song = Song.new
-    2.times { @song.lyrics.build }
+    4.times { @song.lyrics.build }
   end
 
   def create
+    song_params[:audio] = "/assets/#{song_params[:audio]}"
     @song = Song.new(song_params)
     if @song.save
       flash[:success] = "Song created successfully"
@@ -46,7 +50,7 @@ class SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:name, :lines, lyrics_attributes: [:id, :word, :part_of_speech])
+    params.require(:song).permit(:name, :lines, :audio, lyrics_attributes: [:id, :word, :part_of_speech])
   end
 
 end
