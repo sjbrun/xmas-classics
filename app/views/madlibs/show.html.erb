@@ -8,6 +8,9 @@
   </h2>
 </div>
 <div align="center" class="container-fluid">
+  <audio autoplay="autoplay" controls="controls" src="/assets/<%=raw(@madlib.song.audio)%>"></audio>
+</div>
+<div align="center" class="container-fluid">
   <div class="well lyrics">
   <%= simple_format(@new_lyrics) %>
   </div>
