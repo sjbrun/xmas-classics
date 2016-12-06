@@ -20,6 +20,9 @@ class MadlibsController < ApplicationController
     (0..len-1).each do |n|
       @madlib.lyrics[n].part_of_speech = @song.lyrics[n].part_of_speech
     end
+    @madlib.lyrics.each do |lyric|
+      lyric.word.downcase!
+    end
     if @madlib.save
       flash[:success] = "Madlib created successfully"
       redirect_to song_madlib_path(@song, @madlib)
@@ -29,6 +32,10 @@ class MadlibsController < ApplicationController
   end
   
   def update
+    len = @song.lyrics.length
+    (0..len-1).each do |n|
+      @madlib.lyrics[n].part_of_speech = @song.lyrics[n].part_of_speech
+    end
     if @madlib.update(madlib_params)
       flash[:success] = "Madlib was successfully updated."
       redirect_to song_madlib_path(@song, @madlib)
