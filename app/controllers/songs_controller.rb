@@ -11,6 +11,9 @@ class SongsController < ApplicationController
   def create
     song_params[:audio] = "/assets/#{song_params[:audio]}"
     @song = Song.new(song_params)
+    @song.lyrics.each do |lyric|
+      lyric.word.downcase!
+    end
     if @song.save
       flash[:success] = "Song created successfully"
       redirect_to song_path(@song)
