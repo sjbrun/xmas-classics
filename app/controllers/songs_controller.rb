@@ -28,6 +28,7 @@ class SongsController < ApplicationController
   end
   
   def edit
+    @available_audio = get_available_songs
   end
   
   def update
