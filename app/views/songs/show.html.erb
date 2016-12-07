@@ -1,8 +1,10 @@
 <!-- SONG SHOW PAGE -->
-<div align="center" class="jumbotron">
-  <h1>
-    <%= @song.name %>
-  </h1>
+<div align="center" class="elf">
+  <div class= "container-fluid">
+    <h1>
+      <span id="behind"><%= @song.name %></span>
+    </h1>
+  </div>
 </div>
 
 <div align="center" class="well">
@@ -15,7 +17,11 @@
     <% else %>
       Madlibs already created: 
       <% @song.madlibs.each do |madlib| %>
-        <%= link_to(madlib.id, song_madlib_path(@song, madlib)) %>
+        <% if madlib.name %>
+          <%= link_to('"' + madlib.name + '"', song_madlib_path(@song, madlib)) %>
+        <% else %>
+          <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(@song, madlib)) %>  
+        <% end %>
       <% end %>
     <% end %>
   </h3>

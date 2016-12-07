@@ -6,8 +6,13 @@ a:hover {
   color: navy;
 }
 
-.title {
+.main-title {
+  font-size: 1.2em;
+}
+
+.madlib-title {
   font-weight: bold;
+  font-size: 0.8em;
 }
 
 .lyrics {
@@ -34,4 +39,51 @@ a:hover {
   cursor: pointer;
   text-align: right;
   text-decoration: underline;
+}
+
+.navbar .navbar-default {
+  background-color: green;
+}
+
+.jumbotron.snowing {
+  background-image: image-url("snowing.gif");
+  background-size: cover;
+  color: #ff0a0e;
+  text-shadow: -2px 0 #fffafa, 0 2px #fffafa, 2px 0 #fffafa, 0 -2px #fffafa;
+}
+
+.jumbotron.lights {
+  background-color: green;
+  background-image: none;
+  position: relative;
+  color: #ff0a0e;
+  text-shadow: -2px 0 #fffafa, 0 2px #fffafa, 2px 0 #fffafa, 0 -2px #fffafa;
+}
+
+.elf {
+  background-color: none;
+  background-image: image-url("elf-head2.gif");
+  background-size: cover;
+  position: relative;
+  // height: 160px;
+  // background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  
+}
+
+.elf .container-fluid span#behind {
+  font-size: 1.8em;
+  color: red;
+  text-shadow: -2px 0 green, 0 2px green, 2px 0 green, 0 -2px green;
+  z-index: -1;
+  position: relative;
+}
+
+.navbar { margin-bottom:0px;}
+
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
 }

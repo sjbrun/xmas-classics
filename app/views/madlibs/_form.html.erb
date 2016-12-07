@@ -2,10 +2,12 @@
 <div class="panel-body">
 
   <%= form_for [@song, @madlib] do |f| %>
-    <%#= f.label "Select Song to Madlib" %><br>
-    <%#= f.collection_select(:song_id, Song.all, :id, :name) %>
   <div class="form-group">
-    Madlibs:
+    <%= f.label "Name your madlib:", class: "control-label" %>
+    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <legend>Please enter the following word substitutions:</legend>
     <ul>
       <%= f.fields_for :lyrics do |lyrics_form| %>
         <li>

@@ -76,7 +76,7 @@ class MadlibsController < ApplicationController
   end
 
   def madlib_params
-    params.require(:madlib).permit(:song_id, 
+    params.require(:madlib).permit(:name, :song_id, 
                   lyrics_attributes: [:id, :word, :part_of_speech])
   end
 
