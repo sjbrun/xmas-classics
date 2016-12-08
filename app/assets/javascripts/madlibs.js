@@ -1,6 +1,6 @@
 var template = function(i) {
   return '<li>' +
-  '<label for="song_lyrics_attributes_' + i + '_Word or Phrase">Word or phrase</label>' +
+  '<label for="song_lyrics_attributes_' + i + '_word">Word or phrase</label>' +
   '<input type="text" name="song[lyrics_attributes][' + i + '][word]" id="song_lyrics_attributes_' + i +'_word">' +
   '<label for="song_lyrics_attributes_' + i + '_part_of_speech">Part of speech</label>' +
   '<input type="text" name="song[lyrics_attributes][' + i + '][part_of_speech]" id="song_lyrics_attributes_' + i + '_part_of_speech">' +

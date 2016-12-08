@@ -1,4 +1,6 @@
 <!-- SONG SHOW PAGE -->
+<body id="song-show">
+
 <div align="center" class="elf">
   <div class= "container-fluid">
     <h1>
@@ -7,28 +9,30 @@
   </div>
 </div>
 
-<div align="center" class="well">
+<div align="center" class="well santa-red">
   <h2>
-    <%= link_to("Create New Madlib", new_song_madlib_path(@song)) %>
+    <%= link_to("Create New Mad Lib!", new_song_madlib_path(@song), class: "btn btn-warning btn-xlg") %>
   </h2>
   <h3>
     <% if @song.madlibs.empty? %>
       (No madlibs created yet)
     <% else %>
-      Madlibs already created: 
+      Mad libs already created: 
       <% @song.madlibs.each do |madlib| %>
         <% if madlib.name %>
-          <%= link_to('"' + madlib.name + '"', song_madlib_path(@song, madlib)) %>
+          <%= link_to('"' + madlib.name + '"', song_madlib_path(@song, madlib), class: "madlib-list") %>
         <% else %>
-          <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(@song, madlib)) %>  
+          <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(@song, madlib), class: "madlib-list") %>  
         <% end %>
       <% end %>
     <% end %>
   </h3>
 </div>
 
-<div align="center" class="original-lyrics">
-  <h3>Original Lyrics</h3>
+<div align="center" class="well lyrics">
+  <h2 class="original-lyrics">Original Lyrics to "<%= @song.name %>"</h2>
+  <audio controls="controls" src="<%=raw(@song.audio)%>"></audio>
   <%= simple_format(@original_lines) %>
 </div>
 
+</body>

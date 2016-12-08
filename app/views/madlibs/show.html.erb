@@ -1,4 +1,6 @@
 <!-- MADLIB SHOW PAGE -->
+<body id="madlib-show">
+
 <div align="center" class="jumbotron lights">
   <%= image_tag("lights.gif") %>
   <% if @madlib.name %>
@@ -8,19 +10,19 @@
   <% end %>
   <h3>(to the tune of "<%= @madlib.song.name %>")</h3>
 </div> <!-- end page header -->
-<div align="center">
+
+<div align="center" class="container-fluid well">
   <h3>
-    <%= link_to('Edit Madlib', edit_song_madlib_path(@song, @madlib)) %>
+    <%= link_to('Edit Madlib', edit_song_madlib_path(@song, @madlib), class: "btn btn-lg btn-danger") %>
   </h3>
-</div>
-<br>
-
-<div align="center" class="container-fluid">
-  <audio controls="controls" src="<%=raw(@madlib.song.audio)%>"></audio>
+  
 </div>
 
-<div align="center" class="container-fluid">
+<div align="center" class="container">
   <div class="well lyrics">
-  <%= simple_format(@new_lyrics) %>
+    <audio controls="controls" src="<%=raw(@madlib.song.audio)%>"></audio>
+    <%= simple_format(@new_lyrics) %>
   </div>
 </div>
+
+</body>

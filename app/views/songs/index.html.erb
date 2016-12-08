@@ -1,17 +1,25 @@
+<body id="root">
+
 <div align="center" class="jumbotron snowing">
-  <h1 align="center" class="main-title">Christmas Classics Madlibs</h1>
+  <h1 align="center" class="main-title">Christmas Classics Mad Libs</h1>
 </div>
 <br>
-  
-<table align="center" class="table table-hover">
-  <thead></thead>
-  <tbody>
-    <% @songs.each do |song| %>
-      <tr>
-        <td align="center" class="song-table">
-          <%= link_to(song.name, song_path(song)) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="container well">
+  <h1 align="center"><strong>Pick a song to mad lib!</strong></h1>
+  <br>
+  <table align="center" class="table table-hover">
+    <thead></thead>
+    <tbody>
+      <% @songs.each do |song| %>
+        <tr>
+          <td align="center" class="song-row">
+            <%= link_to(song.name, song_path(song)) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+</body>

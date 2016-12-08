@@ -1,9 +1,20 @@
-ul {
-  list-style-type: none; /* remove list bullets */
+//LINKS
+a:hover {
+  color: hotpink;
+  text-decoration: none;
 }
 
-a:hover {
-  color: navy;
+a:hover.madlib-list {
+  color: hotpink;
+  text-decoration: none;
+}
+
+a:link.madlib-list, a:visited.madlib-list {
+  color: #fffafa;
+}
+
+ul {
+  list-style-type: none; /* remove list bullets */
 }
 
 .main-title {
@@ -20,18 +31,19 @@ a:hover {
 }
 
 .original-lyrics {
-  font-style: italic;
+  font-weight: bold;
   font-size: 1.2em;
+  color: hotpink;
 }
 
-.song-table {
+.song-row {
   font-size: 2em;
 }
 
 .highlighted {
   color: #fff;
   background-color: #444;
-  padding: 0 .5em;
+  padding: 0 .2em;
 }
 
 .add-another {
@@ -62,7 +74,7 @@ a:hover {
 
 .elf {
   background-color: none;
-  background-image: image-url("elf-head2.gif");
+  background-image: image-url("elf-head.gif");
   background-size: cover;
   position: relative;
   // height: 160px;
@@ -86,4 +98,31 @@ a:hover {
   color: white;
   font-weight: bold;
   font-size: 1.3em;
+}
+
+.santa-red {
+  background-color: #ff0a0e;
+}
+
+.btn-xlg {
+    padding: 18px 28px;
+    font-size: 22px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: yellow;
+}
+
+// BACKGROUNDS PAGES
+#root {
+  background-image: image-url("dancing-santa.gif");
+  background-size: 10%;
+}
+
+#madlib-show {
+  background-color: #ff0a0e;
 }
