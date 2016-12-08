@@ -3,10 +3,10 @@
 
 <div align="center" class="jumbotron lights">
   <%= image_tag("lights.gif") %>
-  <% if @madlib.name %>
-    <h1 class="title"><%= @madlib.name %></h1>
-  <% else %>
+  <% if @madlib.name.nil? or @madlib.name.blank? %>
     <h1 class="title">"No name #<%= @madlib.id %>"</h1>
+  <% else %>
+    <h1 class="title"><%= @madlib.name %></h1>
   <% end %>
   <h3>(to the tune of "<%= @madlib.song.name %>")</h3>
 </div> <!-- end page header -->
