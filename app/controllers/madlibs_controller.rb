@@ -4,6 +4,7 @@ class MadlibsController < ApplicationController
   
   def new
     @madlib = Madlib.new
+    @song_lyrics = @song.lyrics.order(id: :asc)
     len = @song.lyrics.length
     (0..len-1).each do |n|
       @madlib.lyrics.build(:part_of_speech => @song.lyrics[n].part_of_speech)

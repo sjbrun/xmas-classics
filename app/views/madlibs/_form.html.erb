@@ -9,7 +9,7 @@
   <div class="form-group">
     <legend>Please enter the following word substitutions:</legend>
     <ul>
-      <%= f.fields_for :lyrics, @madlib.lyrics.order(id: :asc) do |lyrics_form| %>
+      <%= f.fields_for :lyrics do |lyrics_form| %>
         <li>
           <%= lyrics_form.text_field :word %>
           <% if !lyrics_form.object.part_of_speech.nil? %>

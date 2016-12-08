@@ -19,10 +19,10 @@
     <% else %>
       Mad libs already created: 
       <% @song.madlibs.each do |madlib| %>
-        <% if madlib.name %>
-          <%= link_to('"' + madlib.name + '"', song_madlib_path(@song, madlib), class: "madlib-list") %>
+        <% if madlib.name.blank? %>
+          <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(@song, madlib), class: "madlib-list") %>
         <% else %>
-          <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(@song, madlib), class: "madlib-list") %>  
+          <%= link_to('"' + madlib.name + '"', song_madlib_path(@song, madlib), class: "madlib-list") %>
         <% end %>
       <% end %>
     <% end %>
