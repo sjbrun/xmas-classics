@@ -1,5 +1,5 @@
 class LyricsController < ApplicationController
-  #before_action :set_lyric, only: [:show, :edit, :update, :destroy]
+  before_action :set_lyric, only: [:show, :edit, :update, :destroy]
   
   def new
   end
@@ -19,7 +19,8 @@ class LyricsController < ApplicationController
   def update
   end
   
-  def delete
+  def destroy
+    @lyric.destroy
   end
   
   private

@@ -66,7 +66,8 @@ class MadlibsController < ApplicationController
   def index
   end
   
-  def delete
+  def destroy
+    @madlib.destroy
   end
   
   private
