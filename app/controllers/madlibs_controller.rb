@@ -42,17 +42,20 @@ class MadlibsController < ApplicationController
   end
   
   def show
-    @new_lyrics = @song.lines.downcase
+    @new_lines = @song.lines.downcase
+    @song_lyrics = @song.lyrics.order(id: :asc)
+    @madlib_lyrics = @madlib.lyrics.order(id: :asc)
+
     len = @madlib.lyrics.length - 1
     (0..len).each do |n|
-      @new_lyrics.gsub!(
-        @song.lyrics[n].word,
-        @madlib.lyrics[n].word
+      @new_lines.gsub!(
+        @song_lyrics[n].word,
+        @madlib_lyrics[n].word
       )
     end
     (0..len).each do |n|
-      @new_lyrics.gsub!(
-        @madlib.lyrics[n].word,
+      @new_lines.gsub!(
+        @madlib_lyrics[n].word,
         "<span class='highlighted'>#{@madlib.lyrics[n].word}</span>"
       )
     end
