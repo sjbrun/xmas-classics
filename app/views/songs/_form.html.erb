@@ -16,8 +16,9 @@
     <div>
       Words or Phrases to be madlibbed:
       <ul id="words-phrases">
-        <%= f.fields_for :lyrics do |lyrics_form| %>
+        <%= f.fields_for :lyrics, @song.lyrics.order(id: :asc) do |lyrics_form| %>
           <li data-number=<%=lyrics_form.index%>>
+            <%= lyrics_form.object.id %>
             <%= lyrics_form.label "Word or Phrase" %>
             <%= lyrics_form.text_field :word %>
 
