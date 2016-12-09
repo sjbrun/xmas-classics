@@ -11,7 +11,8 @@
 
 <div align="center" class="well santa-red">
   <h2>
-    <%= link_to("Create New Mad Lib!", new_song_madlib_path(@song), class: "btn btn-warning btn-xlg") %>
+    <%= link_to "Back to Homepage", root_path, class: "btn btn-primary btn-xlg" %>
+    <%= link_to "Create New Mad Lib!", new_song_madlib_path(@song), class: "btn btn-warning btn-xlg" %>
   </h2>
   <h3>
     <% if @song.madlibs.empty? %>
