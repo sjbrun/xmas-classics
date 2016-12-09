@@ -1,4 +1,5 @@
 class LyricsController < ApplicationController
+  default_scope { order(id: :asc) }
   before_action :set_lyric, only: [:show, :edit, :update, :destroy]
   
   def new
