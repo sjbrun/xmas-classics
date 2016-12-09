@@ -2,28 +2,28 @@
 
 <body id="madlibs-index">
 
-<div align="center" class="jumbotron snowing">
+<div align="center" class="jumbotron lights">
   <h1 align="center" class="main-title">Listing of All Created Mad Libs</h1>
 </div>
 <br>
 
-<div class="container well">
+<div class="container well narrow-width" id="well-red">
   <% @songs.each do |song| %>
     <table align="center" class="table table-hover">
-      <thead><%= song.name %></thead>
-      <tbody>
-        <% song.madlibs.each do |madlib| %>
-          <tr>
-            <td align="center" class="song-row">
-              <% if madlib.name.blank? %>
-                <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(song, madlib), class: "madlib-list") %>
-              <% else %>
-                <%= link_to('"' + madlib.name + '"', song_madlib_path(song, madlib), class: "madlib-list") %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
+      <tr>
+        <th align="center" class="tbl-header"><%= link_to song.name, song_path(song) %></th>
+      </tr>
+      <% song.madlibs.each do |madlib| %>
+        <tr>
+          <td align="center" class="madlib-row">
+            <% if madlib.name.blank? %>
+              <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(song, madlib)) %>
+            <% else %>
+              <%= link_to('"' + madlib.name + '"', song_madlib_path(song, madlib)) %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
     </table>
   <% end %>
 </div>

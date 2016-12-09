@@ -132,6 +132,19 @@ ul {
   background-color: yellow;
 }
 
+.tbl-header {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.narrow-width {
+  width: 50%;
+}
+
+#well-red {
+  background-color: #98fb98;
+}
+
 // BACKGROUNDS PAGES
 #root {
   background-image: image-url("dancing-santa.gif");
