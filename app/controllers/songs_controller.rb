@@ -6,6 +6,7 @@ class SongsController < ApplicationController
 
     @song = Song.new
     4.times { @song.lyrics.build }
+    @song.lyrics.reorder(id: :asc)
   end
 
   def create
