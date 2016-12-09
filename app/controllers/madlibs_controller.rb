@@ -68,6 +68,8 @@ class MadlibsController < ApplicationController
   
   def destroy
     @madlib.destroy
+    flash[:danger] = "Mad lib was successfully deleted."
+    redirect_to song_path(@song)
   end
   
   private
