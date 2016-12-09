@@ -40,6 +40,21 @@ ul {
   font-size: 2em;
 }
 
+.madlib-row {
+  font-size: 1.3em;
+  a {
+    color: hotpink;
+  }
+}
+
+.snow-color {
+  color: white;
+}
+
+.big {
+  font-size: 1.5em;
+}
+
 .highlighted {
   color: #fff;
   background-color: #444;
@@ -125,4 +140,8 @@ ul {
 
 #madlib-show {
   background-color: #ff0a0e;
+}
+
+#madlibs-index {
+  background-image: image-url("sexy-santa-dancing.gif");
 }

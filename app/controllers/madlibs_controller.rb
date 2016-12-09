@@ -64,6 +64,7 @@ class MadlibsController < ApplicationController
   end
   
   def index
+    @songs = Song.order(name: :asc, created_at: :desc)
   end
   
   def destroy

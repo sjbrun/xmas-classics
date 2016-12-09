@@ -1,0 +1,31 @@
+<!--MADLIBS INDEX-->
+
+<body id="madlibs-index">
+
+<div align="center" class="jumbotron snowing">
+  <h1 align="center" class="main-title">Listing of All Created Mad Libs</h1>
+</div>
+<br>
+
+<div class="container well">
+  <% @songs.each do |song| %>
+    <table align="center" class="table table-hover">
+      <thead><%= song.name %></thead>
+      <tbody>
+        <% song.madlibs.each do |madlib| %>
+          <tr>
+            <td align="center" class="song-row">
+              <% if madlib.name.blank? %>
+                <%= link_to('"No name #' + madlib.id.to_s + '"', song_madlib_path(song, madlib), class: "madlib-list") %>
+              <% else %>
+                <%= link_to('"' + madlib.name + '"', song_madlib_path(song, madlib), class: "madlib-list") %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+</body>
